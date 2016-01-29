@@ -1,15 +1,14 @@
 /**
  * Created by jgluhov on 29/01/16.
  */
-export default function greeting($http) {
+export default function greeting() {
 
   function link(scope, element, attrs) {
-    $http.get('/', {}).then(res => console.log(res));
     console.log('directives');
   }
 
   return {
-    restrict: 'A',
+    restrict: 'E',
     link: link,
     scope: {
       name: '='
@@ -17,5 +16,3 @@ export default function greeting($http) {
     template: require('./greeting.jade')()
   };
 }
-
-greeting.$inject = ['$http'];

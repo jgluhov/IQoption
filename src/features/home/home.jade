@@ -1,7 +1,5 @@
 #home-header.jumbotron
-   h1 Hello, {{home.name}}
-
-span(greeting)
+   greeting(name="home.name")
 
 button.btn.btn-primary(ng-click="home.changeName()") Change
 button.btn.btn-danger(ng-click="home.randomName()") Random
