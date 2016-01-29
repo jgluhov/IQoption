@@ -24,6 +24,11 @@ module.exports = {
         loader: "html-loader"
       },
       {
+        test: /\.jade$/,
+        exclude: /node_modules/,
+        loader: "jade-loader"
+      },
+      {
         test: /\.css$/,
         loader: "style-loader!css-loader"
       },
