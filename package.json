@@ -1,0 +1,21 @@
+{
+  "name": "AngularJS-es6",
+  "version": "1.0.0",
+  "description": "AngularJS-es6",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "webpack": "^1.12.12"
+  }
+}
