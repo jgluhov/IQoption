@@ -6,5 +6,5 @@ import angular from 'angular';
 import greeting from './greeting.directive';
 
 export default angular.module('directives.greeting', [])
-  .directive('greeting', () => new greeting())
-  .name;
+  .directive('greeting', greeting)
+  .name
