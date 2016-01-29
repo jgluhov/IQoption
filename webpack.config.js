@@ -8,6 +8,9 @@ module.exports = {
     path: __dirname + "/assets",
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: ["", ".js", ".styl"]
+  },
   module: {
     loaders: [
       {
@@ -26,6 +29,10 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "style-loader!css-loader"
+      },
+      {
+        test: /\.styl$/,
+        loader: "style-loader!css-loader!stylus-loader"
       },
       {
         test: /\.(ttf|woff|woff2|eot|svg)$/,
