@@ -1,11 +1,7 @@
 /**
  * Created by jgluhov on 29/01/16.
  */
-"use strict";
-
-import angular from 'angular';
-
-class RandomNames {
+export default class RandomNames {
   constructor() {
     this.names = ['John', 'Elisa', 'Mark', 'Annie'];
   }
@@ -17,6 +13,4 @@ class RandomNames {
   };
 }
 
-export default angular.module('services.random-names', [])
-  .service('randomNames', RandomNames)
-  .name;
+
