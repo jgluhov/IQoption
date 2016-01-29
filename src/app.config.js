@@ -7,5 +7,6 @@ export default function config($urlRouterProvider, $locationProvider, $compilePr
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
 
+  // Performance boost if false
   $compileProvider.debugInfoEnabled(true);
 }
