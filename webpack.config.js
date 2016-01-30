@@ -16,10 +16,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
-        query: {
-          presets: ['es2015']
-        }
+        loader: "ng-annotate!babel-loader?presets[]=es2015!eslint-loader"
       },
       {
         test: /\.html$/,
@@ -44,6 +41,13 @@ module.exports = {
         loader: 'file-loader'
       }
     ]
+  },
+  eslint: {
+    configFile: '.eslintrc',
+    emitError: false,
+    failOnError: false,
+    failOnWarning: false,
+    quiet: true
   },
   watch: true
 };

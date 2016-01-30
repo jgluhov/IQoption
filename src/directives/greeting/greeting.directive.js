@@ -1,15 +1,20 @@
 /**
  * Created by jgluhov on 29/01/16.
  */
+
+/**
+ * @returns {{restrict: string, link: link, scope: {name: string}, template: string}}
+ */
+
 export default function greeting() {
 
-  function link(scope, element, attrs) {
-    console.log('directives');
+  function link() {
+
   }
 
   return {
     restrict: 'E',
-    link: link,
+    link,
     scope: {
       name: '='
     },

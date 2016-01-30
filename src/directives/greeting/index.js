@@ -7,4 +7,4 @@ import greeting from './greeting.directive';
 
 export default angular.module('directives.greeting', [])
   .directive('greeting', greeting)
-  .name
+  .name;

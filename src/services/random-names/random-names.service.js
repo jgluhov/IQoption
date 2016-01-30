@@ -6,11 +6,11 @@ export default class RandomNames {
     this.names = ['John', 'Elisa', 'Mark', 'Annie'];
   }
 
-  getName ()  {
-    let totalNames = this.names.length;
-    let randomIndex = Math.floor(Math.random() * totalNames);
+  getName() {
+    const totalNames = this.names.length;
+    const randomIndex = Math.floor(Math.random() * totalNames);
     return this.names[randomIndex];
-  };
+  }
 }
 
 

@@ -10,5 +10,5 @@ export default function routes($stateProvider) {
       template: require('./home.jade')(),
       controller: 'HomeController',
       controllerAs: 'home'
-    })
+    });
 }
