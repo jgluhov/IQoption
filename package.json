@@ -4,10 +4,11 @@
   "description": "AngularJS-es6",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "webpack"
+    "start": "NODE_ENV=development webpack",
+    "test": "COVERAGE=true karma start"
   },
   "keywords": [],
-  "author": "",
+  "author": "JGluhov",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.4.9",
@@ -25,11 +26,14 @@
     "eslint-loader": "^1.2.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.0",
+    "isparta": "^4.0.0",
+    "isparta-loader": "^2.0.0",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
     "karma-jasmine": "^0.3.6",
     "karma-webpack": "^1.7.0",
     "path": "^0.12.7",

@@ -2,13 +2,17 @@
 // Generated on Sun Jan 31 2016 11:25:45 GMT+0300 (MSK)
 
 var path = require('path');
+
+var coverage = process.env.COVERAGE === 'true';
 var webpackConfig = getWebpackConfig();
+
+var entry = path.join(webpackConfig.context, webpackConfig.entry);
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: './',
 
 
     // frameworks to use
@@ -37,8 +41,15 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: getReporters(),
 
+    coverageReporter: {
+      reporters: [
+        {type: 'lcov', dir: 'coverage/', subdir: '.'},
+        {type: 'json', dir: 'coverage/', subdir: '.'},
+        {type: 'text-summary'}
+      ]
+    },
 
     // web server port
     port: 9876,
@@ -69,13 +80,41 @@ module.exports = function(config) {
     // Plugins
     plugins: [
       require('karma-webpack'),
+      'karma-coverage',
       'karma-jasmine',
       'karma-chrome-launcher'
     ]
   })
 };
 
+function getReporters() {
+  var reporters = ['progress'];
+  if(coverage) {
+    reporters.push('coverage');
+  }
+  return reporters;
+}
+
 function getWebpackConfig() {
   var webpackConfig = require('./webpack.config');
+  if(coverage) {
+    webpackConfig.module.loaders[0].exclude = /node_modules|^((?!\.(test|mock)\.).)*$/i;
+
+    webpackConfig.isparta = {
+      embedSource: true,
+      noAutoWrap: true,
+      babel: {
+        presets: ['es2015']
+      }
+    };
+
+    webpackConfig.module.loaders.push({
+      test: /^((?!\.(test|mock)\.).)*$/i,
+      include: path.join(__dirname, 'src'),
+      exclude: /\.(styl|jade)$/,
+      loader: 'isparta-loader'
+    });
+
+  }
   return webpackConfig;
 }

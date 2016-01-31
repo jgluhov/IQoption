@@ -1,7 +1,6 @@
 /**
  * Created by jgluhov on 29/01/16.
  */
-routes.$inject = ['$stateProvider'];
 
 export default function routes($stateProvider) {
   $stateProvider
@@ -12,3 +11,5 @@ export default function routes($stateProvider) {
       controllerAs: 'home'
     });
 }
+
+routes.$inject = ['$stateProvider'];
