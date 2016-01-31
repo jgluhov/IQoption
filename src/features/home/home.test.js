@@ -9,7 +9,8 @@ import '../../services/random-names';
 
 describe('Home Controller', () => {
   let $controller,
-    randomNames;
+    randomNames,
+    HomeController;
 
   beforeEach(angular.mock.module(home));
 
@@ -18,15 +19,17 @@ describe('Home Controller', () => {
     randomNames = _randomNames_;
   }));
 
+  beforeEach(() => {
+    HomeController = $controller('HomeController');
+  });
+
   it(`name is initialized to 'JGluhov'`, () => {
-    const HomeController = $controller('HomeController');
-    expect(HomeController.name).toBe('JGluhov');
+    expect(HomeController.name).to.be.a('string').to.equal('JGluhov');
   });
 
   it('should change name to the one of the names from random-service names array', () => {
-    const HomeController = $controller('HomeController');
     HomeController.randomName();
-    const index = randomNames.names.indexOf(HomeController.name);
-    expect(index).not.toBe(-1);
+    expect(randomNames.names).to.be.instanceOf(Array);
+    expect(randomNames.names).to.include(HomeController.name);
   });
 });

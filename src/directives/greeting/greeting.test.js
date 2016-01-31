@@ -23,12 +23,12 @@ describe('greeting directive', () => {
   });
 
   it('should applied template', () => {
-    expect(element.find('h1')).not.toBe(0);
+    expect(element.find('h1')).not.to.be.empty;
   });
 
   it('name of isolated scope should exactly the same as attr name', () => {
     const isolatedScope = element.isolateScope();
-    expect(isolatedScope.name).toEqual(scope.sName);
+    expect(isolatedScope.name).to.equal(scope.sName);
   });
 
 });
