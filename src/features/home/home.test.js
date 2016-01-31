@@ -1,13 +1,11 @@
 /**
  * Created by jgluhov on 31/01/16.
  */
-/*eslint-env jasmine */
-import angular from 'angular';
-import 'angular-mocks';
-
+/*eslint-env jasmine*/
+/*global angular:true*/
 import home from './index';
 
-describe('Controller: Home', function() {
+describe('HomeController', function() {
   let $controller;
 
   beforeEach(angular.mock.module(home));

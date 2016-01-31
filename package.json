@@ -4,7 +4,7 @@
   "description": "AngularJS-es6",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack",
+    "start": "NODE_ENV=development webpack-dev-server",
     "test": "COVERAGE=true karma start"
   },
   "keywords": [],
