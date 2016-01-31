@@ -4,11 +4,6 @@
 var path = require('path');
 var webpackConfig = getWebpackConfig();
 
-function getWebpackConfig() {
-  var webpackConfig = require('./webpack.config');
-  return webpackConfig;
-}
-
 module.exports = function(config) {
   config.set({
 
@@ -79,3 +74,8 @@ module.exports = function(config) {
     ]
   })
 };
+
+function getWebpackConfig() {
+  var webpackConfig = require('./webpack.config');
+  return webpackConfig;
+}
