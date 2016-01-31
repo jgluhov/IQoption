@@ -9,7 +9,7 @@ module.exports = {
     filename: "bundle.js"
   },
   resolve: {
-    extensions: ["", ".js", ".styl"]
+    extensions: ["", ".js", ".styl", ".jade"]
   },
   module: {
     loaders: [
