@@ -7,7 +7,7 @@
 import home from './index';
 import '../../services/random-names';
 
-describe('HomeController', () => {
+describe('Home Controller', () => {
   let $controller,
     randomNames;
 
@@ -18,14 +18,8 @@ describe('HomeController', () => {
     randomNames = _randomNames_;
   }));
 
-  it('name is initialized to World', () => {
+  it(`name is initialized to 'JGluhov'`, () => {
     const HomeController = $controller('HomeController');
-    expect(HomeController.name).toBe('World');
-  });
-
-  it(`should change name with 'JGluhov'`, () => {
-    const HomeController = $controller('HomeController');
-    HomeController.changeName();
     expect(HomeController.name).toBe('JGluhov');
   });
 
