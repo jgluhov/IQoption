@@ -16,8 +16,9 @@ describe('greeting directive', () => {
       compile = $compile;
       scope = $rootScope;
     });
+    scope.sName = 'angularjs-es6';
 
-    element = compile('<greeting name="angularjs-es6"></greeting>')(scope);
+    element = compile('<greeting name="sName"></greeting>')(scope);
     scope.$digest();
   });
 
@@ -27,7 +28,7 @@ describe('greeting directive', () => {
 
   it('name of isolated scope should exactly the same as attr name', () => {
     const isolatedScope = element.isolateScope();
-    expect(isolatedScope.name).toEqual('angularjs-es6');
+    expect(isolatedScope.name).toEqual(scope.sName);
   });
 
 });

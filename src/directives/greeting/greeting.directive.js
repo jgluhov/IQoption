@@ -11,7 +11,7 @@ export default function greeting() {
   return {
     restrict: 'E',
     scope: {
-      name: '@'
+      name: '='
     },
     template: require('./greeting.jade')()
   };
