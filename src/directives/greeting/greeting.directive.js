@@ -8,16 +8,12 @@
 
 export default function greeting() {
 
-  function link() {
-    //console.log(scope.name);
-  }
-
   return {
     restrict: 'E',
-    link,
     scope: {
       name: '@'
     },
     template: require('./greeting.jade')()
   };
+
 }
