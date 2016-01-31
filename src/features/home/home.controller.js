@@ -9,7 +9,7 @@ export default class HomeController {
   }
 
   changeName() {
-    this.name = 'JGluhov is the best programmer all over the world!';
+    this.name = 'JGluhov';
   }
 
   randomName() {
