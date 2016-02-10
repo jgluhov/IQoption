@@ -3,14 +3,14 @@
  */
 
 export default class HomeController {
-  constructor(randomNames) {
-    this.random = randomNames;
-    this.name = 'JGluhov';
-  }
+	constructor(randomNames) {
+		this.random = randomNames;
+		this.name = 'JGluhov';
+	}
 
-  randomName() {
-    this.name = this.random.getName();
-  }
+	randomName() {
+		this.name = this.random.getName();
+	}
 }
 
 HomeController.$inject = ['randomNames'];

@@ -1,9 +1,15 @@
 /**
  * Created by jgluhov on 29/01/16.
  */
+var webpack = require('webpack'),
+  HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   context: __dirname + "/src",
-  entry: "./app.js",
+  entry: {
+    app: "./app.js",
+    vendor: ["jquery", "moment", "bootstrap-daterangepicker"]
+  },
   output: {
     path: __dirname + "/assets",
     publicPath: '/assets',
@@ -43,6 +49,20 @@ module.exports = {
       }
     ]
   },
+  noParse: [
+    /angular\/angular.js/,
+    /angular-ui-router\/release\/angular-ui-router.js/
+  ],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: '../index.html'
+    }),
+    new webpack.IgnorePlugin(/\.\/locale/),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    }),
+    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
+  ],
   eslint: {
     emitError: false,
     failOnError: false,

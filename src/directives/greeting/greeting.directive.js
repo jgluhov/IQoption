@@ -4,17 +4,14 @@
 /**
  * @returns {{restrict: string, link: link, scope: {name: string}, template: string}}
  */
-
-
-
 export default function greeting() {
 
-  return {
-    restrict: 'E',
-    scope: {
-      name: '='
-    },
-    template: require('./greeting.jade')()
-  };
+	return {
+		restrict: 'E',
+		scope: {
+			name: '='
+		},
+		template: require('./greeting.jade')()
+	};
 
 }
