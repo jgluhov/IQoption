@@ -8,7 +8,11 @@ module.exports = {
   context: __dirname + "/src",
   entry: {
     app: "./app.js",
-    vendor: ["jquery", "moment", "bootstrap-daterangepicker"]
+    vendor: [
+      "jquery",
+      "moment",
+      "bootstrap-daterangepicker"
+    ]
   },
   output: {
     path: __dirname + "/assets",
@@ -18,6 +22,7 @@ module.exports = {
   resolve: {
     extensions: ["", ".js", ".styl", ".jade"]
   },
+  devtool: "#inline-source-map",
   module: {
     loaders: [
       {
@@ -51,7 +56,9 @@ module.exports = {
   },
   noParse: [
     /angular\/angular.js/,
-    /angular-ui-router\/release\/angular-ui-router.js/
+    /angular-ui-router\/release\/angular-ui-router.js/,
+    /bootstrap-daterangepicker\/daterangepicker.js/,
+    /highcharts\/highcharts.js/
   ],
   plugins: [
     new HtmlWebpackPlugin({
@@ -59,7 +66,8 @@ module.exports = {
     }),
     new webpack.IgnorePlugin(/\.\/locale/),
     new webpack.ProvidePlugin({
-      $: 'jquery'
+      $: 'jquery',
+      jQuery: 'jquery'
     }),
     new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
   ],

@@ -10,10 +10,11 @@ import uirouter from 'angular-ui-router';
 import config from './home.config';
 import HomeController from './home.controller';
 import daterangepicker from '../../directives/daterangepicker';
+import highchart from '../../directives/highchart';
 import randomNames from '../../services/random-names';
 import greeting from '../../directives/greeting';
 
-export default angular.module('app.home', [uirouter, randomNames, greeting, daterangepicker])
+export default angular.module('app.home', [uirouter, randomNames, greeting, daterangepicker, highchart])
   .config(config)
   .controller('HomeController', HomeController)
   .name;
