@@ -1,5 +1,5 @@
 /*global $*/
-
+import '../../../node_modules/bootstrap-daterangepicker';
 /*
  * @returns {{restrict: string}}
  */

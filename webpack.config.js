@@ -6,14 +6,7 @@ var webpack = require('webpack'),
 
 module.exports = {
   context: __dirname + "/src",
-  entry: {
-    app: "./app.js",
-    vendor: [
-      "jquery",
-      "moment",
-      "bootstrap-daterangepicker"
-    ]
-  },
+  entry: "./app.js",
   output: {
     path: __dirname + "/assets",
     publicPath: '/assets',
@@ -68,9 +61,9 @@ module.exports = {
     new webpack.IgnorePlugin(/\.\/locale/),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
-    }),
-    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
+      jQuery: 'jquery',
+      moment: 'moment'
+    })
   ],
   eslint: {
     emitError: false,
