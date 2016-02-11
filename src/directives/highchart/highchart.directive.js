@@ -1,6 +1,3 @@
-/**
- * Created by jgluhov on 10.02.16.
- */
 import './highchart.styl';
 
 import Highcharts from 'highcharts';
@@ -12,8 +9,19 @@ import HighchartOptions from './highchart.options';
  */
 export default function highchart() {
 
-	function link() {
-		Highcharts.chart(document.querySelector('.highchart-area'), new HighchartOptions());
+	function link(scope) {
+		const options = new HighchartOptions(new Date(2010, 0, 1), new Date());
+		const chart = Highcharts.chart(document.querySelector('.highchart-area'), options);
+
+		scope.$on('onChangeDate', (e, args) => {
+			const [minMonth, minDay, minYear] = args.startDate.split('/');
+			const [maxMonth, maxDay, maxYear] = args.endDate.split('/');
+
+			chart.xAxis[0].update({
+				min: Date.UTC(minYear, minMonth, minDay),
+				max: Date.UTC(maxYear, maxMonth, maxDay)
+			});
+		});
 	}
 
 	return {

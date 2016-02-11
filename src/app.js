@@ -1,6 +1,3 @@
-/**
- * Created by jgluhov on 29/01/16.
- */
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import angular from 'angular';

@@ -1,6 +1,3 @@
-/**
- * Created by jgluhov on 31/01/16.
- */
 import 'angular';
 import 'angular-mocks';
 

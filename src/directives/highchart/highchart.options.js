@@ -1,11 +1,13 @@
-/**
- * Created by jgluhov on 10.02.16.
- */
 /*global Math*/
+
 export default class HighchartOptions {
-	constructor() {
+	constructor(startDate, endDate) {
 		this.chart = {
 			type: 'area'
+		};
+
+		this.credits = {
+			text: 'IQOption'
 		};
 
 		this.title = {
@@ -18,7 +20,6 @@ export default class HighchartOptions {
 
 		this.plotOptions = {
 			area: {
-				pointStart: 0,
 				marker: {
 					enabled: false,
 					symbol: 'circle',
@@ -42,7 +43,7 @@ export default class HighchartOptions {
 					24304, 23464, 23708, 24099, 24357, 24237, 24401, 24344, 23586,
 					22380, 21004, 17287, 14747, 13076, 12555, 12144, 11009, 10950,
 					10871, 10824, 10577, 10527, 10475, 10421, 10358, 10295, 10104
-				], new Date(2010, 0, 1), new Date()),
+				], startDate, endDate),
 				color: '#FFEEA4'
 			},
 			{
@@ -54,13 +55,16 @@ export default class HighchartOptions {
 					33952, 35804, 37431, 39197, 43000, 43000, 41000, 39000, 37000,
 					35000, 33000, 31000, 29000, 27000, 25000, 24000, 23000, 22000,
 					21000, 20000, 19000, 18000, 18000, 17000, 16000
-				], new Date(2010, 0, 1), new Date()),
+				], startDate, endDate),
 				color: '#FFAC11',
 				fillOpacity: 0.3
 			}
 		];
 	}
 
+	/*
+	 * returns an array of [[Date, number][][]...]
+	 */
 	generateDates(points, begin, end) {
 		const dates = [];
 		const results = [];

@@ -1,14 +1,24 @@
-/**
- * Created by jgluhov on 10.02.16.
- */
+/*global $*/
+
 /*
  * @returns {{restrict: string}}
  */
-/*global $*/
 export default function daterangepicker() {
 
-	function link(scope, element) {
-		$(element[0]).daterangepicker();
+	function link(scope) {
+		const input = document.querySelector('.daterangeinput');
+		$(input).daterangepicker({
+			startDate: '01/01/2010',
+			endDate: '02/11/2016'
+		});
+		$(input).on('apply.daterangepicker', (e, picker) => {
+			const startDate = picker.startDate.format('MM/DD/YYYY');
+			const endDate = picker.endDate.format('MM/DD/YYYY');
+
+			input.value = [startDate, endDate].join(' - ');
+
+			scope.$emit('onChangeDate', {startDate, endDate});
+		});
 	}
 
 	return {

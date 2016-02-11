@@ -1,7 +1,3 @@
-/**
- * Created by jgluhov on 29/01/16.
- */
-
 export default function routes($stateProvider) {
 	$stateProvider
 		.state('home', {

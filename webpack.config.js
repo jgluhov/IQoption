@@ -58,7 +58,8 @@ module.exports = {
     /angular\/angular.js/,
     /angular-ui-router\/release\/angular-ui-router.js/,
     /bootstrap-daterangepicker\/daterangepicker.js/,
-    /highcharts\/highcharts.js/
+    /highcharts\/highcharts.js/,
+    /highcharts\/modules\/exporting/
   ],
   plugins: [
     new HtmlWebpackPlugin({
