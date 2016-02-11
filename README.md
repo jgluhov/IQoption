@@ -1,1 +1,1 @@
-# IQoption
+# IQOption

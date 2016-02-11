@@ -2,15 +2,16 @@
  * Created by jgluhov on 29/01/16.
  */
 var webpack = require('webpack'),
-  HtmlWebpackPlugin = require('html-webpack-plugin');
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: __dirname + "/src",
   entry: "./app.js",
   output: {
-    path: __dirname + "/assets",
-    publicPath: '/assets',
-    filename: "bundle.js"
+    path: __dirname + "/public",
+    publicPath: '/',
+    filename: "js/bundle.js"
   },
   resolve: {
     extensions: ["", ".js", ".styl", ".jade"]
@@ -35,15 +36,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: ExtractTextPlugin.extract("style-loader","css-loader")
       },
       {
         test: /\.styl$/,
-        loader: "style-loader!css-loader!stylus-loader"
+        loader: ExtractTextPlugin.extract("style-loader","css-loader!stylus-loader?resolve url")
       },
       {
         test: /\.(ttf|woff|woff2|eot|svg)$/,
-        loader: 'file-loader'
+        loader: 'file-loader?name=./fonts/[name].[ext]'
       }
     ]
   },
@@ -56,13 +57,16 @@ module.exports = {
   ],
   plugins: [
     new HtmlWebpackPlugin({
-      template: '../index.html'
+      template: './index.jade'
     }),
     new webpack.IgnorePlugin(/\.\/locale/),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       moment: 'moment'
+    }),
+    new ExtractTextPlugin("./css/styles.css", {
+      disable: process.env.NODE_ENV == 'development'
     })
   ],
   eslint: {
